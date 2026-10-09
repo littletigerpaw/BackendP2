@@ -94,6 +94,14 @@ Inventory
 - `PUT /inventory/<int:inventory_id>`
 - `DELETE /inventory/<int:inventory_id>`
 
+## Postman Collection Export
+
+The verified route test collection has been exported to:
+
+- `mechanic_shop_api.postman_collection.json`
+
+This collection covers the customer auth flow, mechanics, service ticket operations, and inventory CRUD checks using variables for the live local server at `http://127.0.0.1:5000`.
+
 ## Testing
 
 Run tests locally:

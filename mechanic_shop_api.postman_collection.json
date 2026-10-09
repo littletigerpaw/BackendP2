@@ -14,6 +14,16 @@
   ],
   "item": [
     {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/",
+          "path": [""]
+        }
+      }
+    },
+    {
       "name": "Customers",
       "item": [
         {
