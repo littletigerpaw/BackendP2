@@ -21,7 +21,7 @@ def create_service_ticket():
     if missing:
         return jsonify({"error": f"Missing fields: {', '.join(missing)}"}), 400
 
-    customer = Customer.query.get(payload["customer_id"])
+    customer = db.session.get(Customer, payload["customer_id"])
     if customer is None:
         return jsonify({"error": "customer_id does not exist"}), 404
 
@@ -72,12 +72,12 @@ def edit_service_ticket(ticket_id):
     remove_ids = payload.get("remove_ids", [])
 
     for mechanic_id in add_ids:
-        mechanic = Mechanic.query.get(mechanic_id)
+        mechanic = db.session.get(Mechanic, mechanic_id)
         if mechanic and mechanic not in ticket.mechanics:
             ticket.mechanics.append(mechanic)
 
     for mechanic_id in remove_ids:
-        mechanic = Mechanic.query.get(mechanic_id)
+        mechanic = db.session.get(Mechanic, mechanic_id)
         if mechanic and mechanic in ticket.mechanics:
             ticket.mechanics.remove(mechanic)
 
